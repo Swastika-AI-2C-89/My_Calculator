@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Calculator- A Customizable Calculation Help</title>
+  
+  <!-- 10 Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Dancing+Script:wght@700&family=Fira+Code:wght@500&family=Lobster&family=Montserrat:wght@500&family=Orbitron:wght@500&family=Pacifico&family=Playfair+Display:wght@600&family=Poppins:wght@400;600&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="app-body" class="font-poppins theme-neon-galaxy">
+
+  <!-- Top Navigation Bar -->
+  <header class="top-navbar">
+    <div class="left-nav-group">
+      <!-- Top-Left Hamburger Menu Button -->
+      <button class="hamburger-btn" onclick="toggleSidebar()">☰</button>
+      
+      <div class="logo-area" onclick="navigateTo('home-page')">
+        <img src="watermarked_img_1622789621983002223.png" alt="Logo" class="app-logo" onerror="this.style.display='none'" />
+        <span class="site-title">My Calculator</span>
+      </div>
+    </div>
+    
+    <div class="top-right-nav">
+      <button class="nav-link-btn" onclick="navigateTo('about-page')">About</button>
+      <button class="nav-link-btn" onclick="navigateTo('contact-page')">Contact Us</button>
+      
+      <!-- Persistent Click-Toggle Menu -->
+      <div class="dropdown-wrapper">
+        <button class="menu-btn" onclick="toggleMainDropdown()">Menu ▾</button>
+        <div id="main-dropdown" class="dropdown-menu hidden">
+          <button onclick="navigateTo('calculator-engine-page'); hideMainDropdown();">🧮 Calculator</button>
+          <button onclick="navigateTo('settings-page'); hideMainDropdown();">⚙️ Settings</button>
+          <button onclick="navigateTo('help-page'); hideMainDropdown();">📖 Help</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar Drawer for Mobile / Top-Left Menu -->
+  <div id="sidebar-drawer" class="sidebar-drawer hidden">
+    <div class="sidebar-header">
+      <h3>Navigation</h3>
+      <button class="close-sidebar" onclick="toggleSidebar()">✕</button>
+    </div>
+    <div class="sidebar-links">
+      <button onclick="navigateTo('home-page'); toggleSidebar();">🏠 Home</button>
+      <button onclick="navigateTo('about-page'); toggleSidebar();">ℹ️ About</button>
+      <button onclick="navigateTo('contact-page'); toggleSidebar();">📞 Contact Us</button>
+      <button onclick="navigateTo('calculator-engine-page'); toggleSidebar();">🧮 Calculator</button>
+      <button onclick="navigateTo('settings-page'); toggleSidebar();">⚙️ Settings</button>
+      <button onclick="navigateTo('help-page'); toggleSidebar();">📖 Help</button>
+    </div>
+  </div>
+
+  <main class="content-container">
+
+    <!-- HOME / WELCOME PAGE (DEFAULT) -->
+    <section id="home-page" class="page-section">
+      <div class="hero-card">
+        <div class="heading-banner">
+          <h1>My Calculator- A Customizable Calculation Help</h1>
+        </div>
+        <p class="subtitle">An advanced web platform featuring crisp high-definition backgrounds, custom themes, live typography, and memory calculation features.</p>
+        
+        <div class="features-grid">
+          <div class="feature-box">
+            <h3>Vibrant Themes</h3>
+            <p>Select from a rich gallery of glowing and classic color themes.</p>
+          </div>
+          <div class="feature-box">
+            <h3>Google Fonts</h3>
+            <p>Change typography dynamically across the entire website interface.</p>
+          </div>
+          <div class="feature-box">
+            <h3>Ans Memory Engine</h3>
+            <p>Store your previous calculation results automatically for chained operations.</p>
+          </div>
+        </div>
+
+        <button class="primary-btn" onclick="navigateTo('calculator-engine-page')">Open Calculator Engine</button>
+      </div>
+    </section>
+
+    <!-- ABOUT PAGE -->
+    <section id="about-page" class="page-section hidden">
+      <button class="back-btn" onclick="navigateTo('home-page')">← Back</button>
+      <div class="info-card wide">
+        <div class="heading-banner">
+          <h2>About My Calculator</h2>
+        </div>
+        <p><strong>My Calculator- A Customizable Calculation Help</strong> is a next-generation web calculation suite engineered to merge aesthetic customization with absolute numerical utility. Built for students, engineers, and creators who value personalization, our application removes the rigid constraints of traditional software.</p>
+        <br>
+        <p><strong>Core Architecture & Highlights:</strong></p>
+        <ul class="about-list">
+          <li><strong>Dynamic Global Styling:</strong> Instant reactive switching across custom Google typography classes and high-contrast color palettes.</li>
+          <li><strong>Crisp High-Definition Wallpapers:</strong> Sharp, vibrant visual imagery designed to pop on any display without blurring or distortion.</li>
+          <li><strong>Advanced Calculation Memory (Ans):</strong> Seamlessly capture output tokens to run consecutive mathematical evaluations without manual re-entry.</li>
+          <li><strong>Modular Layout Navigation:</strong> Clean multi-page architecture with dropdown controls and dedicated galleries.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT PAGE -->
+    <section id="contact-page" class="page-section hidden">
+      <button class="back-btn" onclick="navigateTo('home-page')">← Back</button>
+      <div class="info-card">
+        <div class="heading-banner">
+          <h2>Contact Us</h2>
+        </div>
+        <p>Have questions or feedback about our platform? Reach out below!</p>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" rows="4" required></textarea>
+          <button type="submit" class="primary-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- HELP PAGE -->
+    <section id="help-page" class="page-section hidden">
+      <button class="back-btn" onclick="navigateTo('home-page')">← Back</button>
+      <div class="info-card wide">
+        <div class="heading-banner">
+          <h2>User Guide & Help Center</h2>
+        </div>
+        <p>Learn how to navigate and make the most out of your calculator application:</p>
+        <br>
+        <div class="help-steps">
+          <div class="step-box">
+            <strong>1. Accessing the Menu:</strong> Click <strong>Menu</strong> in the top right to open options.
+          </div>
+          <div class="step-box">
+            <strong>2. Customizing Settings:</strong> Go to <em>Settings</em> to change Themes, Font, Background, or Customize Background.
+          </div>
+          <div class="step-box">
+            <strong>3. Using Ans Memory:</strong> After completing an operation (e.g., `89+25 = 114`), clicking an operator like `+` will automatically insert `Ans +`, resulting in `139` when you add `25` and `=`.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS PAGE (Contains Themes, Font, Background, Customize Background) -->
+    <section id="settings-page" class="page-section hidden">
+      <button class="back-btn" onclick="navigateTo('home-page')">← Back</button>
+      <div class="sub-menu-card">
+        <div class="heading-banner">
+          <h2>Settings</h2>
+        </div>
+        <p>Configure all your app appearance and customization options below:</p>
+
+        <div class="hub-buttons">
+          <button class="hub-btn" onclick="navigateTo('themes-page')">Themes</button>
+          <button class="hub-btn" onclick="navigateTo('fonts-page')">Font</button>
+          <button class="hub-btn" onclick="navigateTo('backgrounds-page')">Background</button>
+          <button class="hub-btn" onclick="navigateTo('customize-bg-page')">Customize Background</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEMES GALLERY PAGE -->
+    <section id="themes-page" class="page-section hidden">
+      <button class="back-btn" onclick="navigateTo('settings-page')">← Back</button>
+      <div class="heading-banner section-banner">
+        <h2>Themes Gallery</h2>
+      </div>
+      <div id="themes-grid" class="gallery-grid"></div>
+    </section>
+
+    <!-- FONTS GALLERY PAGE -->
+    <section id="fonts-page" class="page-section hidden">
+      <button class="back-btn" onclick="navigateTo('settings-page')">← Back</button>
+      <div class="heading-banner section-banner">
+        <h2>Fonts Gallery</h2>
+      </div>
+      <div id="fonts-grid" class="gallery-grid"></div>
+    </section>
+
+    <!-- BACKGROUNDS GALLERY PAGE -->
+    <section id="backgrounds-page" class="page-section hidden">
+      <button class="back-btn" onclick="navigateTo('settings-page')">← Back</button>
+      <div class="heading-banner section-banner">
+        <h2>Backgrounds Gallery</h2>
+      </div>
+      <div id="backgrounds-grid" class="gallery-grid"></div>
+    </section>
+
+    <!-- CUSTOMIZE BACKGROUND PAGE -->
+    <section id="customize-bg-page" class="page-section hidden">
+      <button class="back-btn" onclick="navigateTo('settings-page')">← Back</button>
+      <div class="info-card">
+        <div class="heading-banner">
+          <h2>Upload Custom Background</h2>
+        </div>
+        <p>Select any image file from your device:</p>
+        <br>
+        <input type="file" id="custom-file-input" accept="image/*" onchange="uploadCustomBackground(event)" />
+      </div>
+    </section>
+
+    <!-- CALCULATOR ENGINE PAGE (Direct Access) -->
+    <section id="calculator-engine-page" class="page-section hidden">
+      <button class="back-btn" onclick="navigateTo('home-page')">← Back</button>
+      <div class="calculator">
+        <input type="text" id="display" readonly value="0" />
+
+        <div class="keys">
+          <!-- Editing Controls & Cursor -->
+          <button class="btn-clear" onclick="clearDisplay()">C</button>
+          <button class="btn-edit" onclick="deleteChar()">⌫</button>
+          <button class="btn-edit" onclick="moveCursor('left')">◀</button>
+          <button class="btn-edit" onclick="moveCursor('right')">▶</button>
+          <button id="cursor-toggle-btn" class="btn-cursor-toggle" onclick="toggleCursor()">| Cursor: OFF</button>
+
+          <!-- Row 1: 7, 8, 9, / -->
+          <button onclick="appendValue('7')">7</button>
+          <button onclick="appendValue('8')">8</button>
+          <button onclick="appendValue('9')">9</button>
+          <button onclick="appendValue('/')">/</button>
+
+          <!-- Row 2: 4, 5, 6, * -->
+          <button onclick="appendValue('4')">4</button>
+          <button onclick="appendValue('5')">5</button>
+          <button onclick="appendValue('6')">6</button>
+          <button onclick="appendValue('*')">*</button>
+
+          <!-- Row 3: 1, 2, 3, - -->
+          <button onclick="appendValue('1')">1</button>
+          <button onclick="appendValue('2')">2</button>
+          <button onclick="appendValue('3')">3</button>
+          <button onclick="appendValue('-')">-</button>
+
+          <!-- Row 4: 0, ., +, = -->
+          <button class="btn-zero" onclick="appendValue('0')">0</button>
+          <button onclick="appendValue('.')">.</button>
+          <button class="btn-operator" onclick="appendValue('+')">+</button>
+          <button class="btn-equals" onclick="calculate()">=</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
